@@ -1,0 +1,15 @@
+{% extends  'base.html' %}
+
+{% block content %}
+
+{% for book in book_items %}
+   {{ book.title }}  {{ book.pages }}
+{% endfor %}
+
+{% if book_items.pages > 300 %}
+გრძელი წიგნია
+{%else%}
+მოკლე წიგნია
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ჩემი ბიბლიოთეკა</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header / საერთო სათაური და ნავიგაცია */
+        header {
+            background: linear-gradient(135deg, #4f46e5, #3b82f6);
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-area h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-area p {
+            margin: 0.2rem 0 0 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* ნავიგაციის მენიუ (URL ლინკები) */
+        nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* მთავარი კონტეინერი */
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ფუტერი */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- საერთო Header და ნავიგაცია -->
+    <header>
+        <div class="logo-area">
+            <h1>📚 ჩემი ციფრული ბიბლიოთეკა</h1>
+            <p>აღმოაჩინე შენი საყვარელი წიგნები</p>
+        </div>
+
+        <!-- ნავიგაციის URL ლინკები -->
+        <nav>
+            <a href="{% url 'home' %}">მთავარი (Home)</a>
+            <a href="{% url 'books' %}">წიგნები (Books)</a>
+        </nav>
+    </header>
+
+    <!-- დინამიური კონტენტის ადგილი -->
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ბიბლიოთეკის პროექტი. ყველა უფლება დაცულია.</p>
+    </footer>
+
+</body>
+</html>
